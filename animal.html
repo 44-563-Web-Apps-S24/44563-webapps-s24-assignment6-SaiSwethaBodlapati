@@ -18,11 +18,13 @@
 </form>
 
 
+
 <p id="result"></p>
 
 <script>
     let wrong=0;
     let correct=0;
+    
 function checkAnimal(){
     console.log("The hidden animal type:")
     form1_animal = document.getElementById("form1_animal").value;
@@ -36,6 +38,29 @@ function checkAnimal(){
         }
 
         document.getElementById("result").innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
+    }
+    </script>
+    <div id="imgContainer" onclick="selectImage()">
+        <img id="imgl" src="images01.jpg" alt="Image" width="150" height="150";  >
+    </div>
+    <script>
+    let useImage=1;
+    function selectImage(){
+        switch(useImage){
+            case 1:
+                document.getElementById('imgl').src = 'images01.jpg';
+                useImage = 2;
+                break;
+            case 2:
+                document.getElementById('imgl').src = 'Expresso.jpg';
+                useImage = 3;
+                break;
+            case 3:
+                document.getElementById('imgl').src = 'image03.jpg';
+                useImage = 1;
+                break;
+
+        }
     }
 </script>
 
