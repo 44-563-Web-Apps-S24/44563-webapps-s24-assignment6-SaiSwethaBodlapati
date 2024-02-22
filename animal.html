@@ -26,37 +26,38 @@
 
 
 
-<p id="result"></p>
+<div id="result"></div>
 
 <script>
     let wrong=0;
     let correct=0;
     
 function checkAnimal(){
-    console.log("The hidden animal type:")
-    form1_animal = document.getElementById("form1_animal").value;
-    form1_guess = document.getElementById("form1_guess").value;
-    if (form1_animal.toUpperCase() === form1_guess.toUpperCase()) {
+    const form1_animal = document.getElementById("form1_animal").value;
+    const form1_guess = document.getElementById("form1_guess").value;
+    if (form1_animal.toLowerCase() === form1_guess.toLowerCase()) {
             correct++;
             alert("Ruff ruff");
         } else {
             wrong++;
             alert("Grrrr");
         }
+        document.getElementById("result").innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
         updateResults();
-        if (wrong > correct) {
-        document.querySelector('button').setAttribute('disabled', 'disabled');
-        alert('Sorry, too many wrong guesses.');
-      }
     }
     function updateResults() {
-        document.getElementById("result").innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
+        if (wrong > correct) {
+        //document.querySelector('button').setAttribute('disabled', 'disabled');
+        alert('Sorry, too many wrong guesses.');
     }
+}
     
-    </script>
+</script>
     <div id="imgContainer" onclick="selectImage()">
         <img id="imgl" src="images01.jpg" alt="Image" width="150" height="150";  >
     </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <script>
     let useImage=1;
     function selectImage(){
@@ -72,6 +73,8 @@ function checkAnimal(){
             case 3:
                 document.getElementById('imgl').src = 'image03.jpg';
                 useImage = 1;
+                break;
+            default:
                 break;
 
         }
